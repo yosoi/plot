@@ -1,10 +1,7 @@
-TODO: design game screens for "home" and "exploring"
+TODO: research cognito guest users
 TODO: research file upload to s3 with amplify/graphql
 TODO: design graphql schema(s)
 TODO: install phaser
-TODO: install react
-TODO: install amplify
-TODO: install react-amplify
-TODO: remove default react branding from app
+TODO: install semantic ui react
 TODO: configure phaser to run in react component/hook (small, fixed-size game)
 TODO: configure react ui for phaser game
