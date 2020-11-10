@@ -6,6 +6,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 
+// TODO: add amplify configuration & auth components
 ReactDOM.render(
   <React.StrictMode>
     <App />
