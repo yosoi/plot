@@ -1,43 +1,34 @@
-import React, { useEffect, useState } from "react";
-
-import { ConfigurationProvider } from "bits/ConfigurationContext";
-import { Grid } from "semantic-ui-react";
 import Phaser from "phaser";
-import play from "bits/play";
+import React from "react";
+import UI from "bits/UI";
+import createGame from "bits/createGame";
+import preloadGame from "bits/preloadGame";
+import usePhaser from "bits/usePhaser";
 
+// TODO: configure game for pixel art
 export default function Game() {
-  const CONTAINER_ID = "game";
-
-  const [configuration] = useState({
-    backgroundColor: "#000000",
-    scale: {
+  const gameRef = usePhaser((canvas) => {
+    return {
+      canvas: canvas,
       height: 300,
-      parent: CONTAINER_ID,
+      scene: {
+        create: createGame,
+        preload: preloadGame,
+      },
+      type: Phaser.CANVAS,
       width: 400,
-    },
-    scene: {
-      create: play,
-    },
-    type: Phaser.AUTO,
+    };
   });
 
-  useEffect(() => {
-    new Phaser.Game(configuration);
-  }, [configuration]);
-
   return (
-    <ConfigurationProvider value={configuration}>
-      <Grid
-        style={{ height: "100vh" }}
-        textAlign="center"
-        verticalAlign="middle"
-      >
-        <Grid.Row>
-          <Grid.Column>
-            <div id={CONTAINER_ID}></div>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </ConfigurationProvider>
+    <>
+      <canvas
+        display="inline"
+        height={300}
+        ref={gameRef}
+        style={{ backgroundColor: "#000000" }}
+        width={400}
+      ></canvas>
+    </>
   );
 }

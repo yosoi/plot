@@ -1,17 +1,14 @@
-import Game from "bits/Game";
 import { Grid } from "semantic-ui-react";
 import React from "react";
 
-function App() {
+export default function UI() {
   return (
-    <Grid style={{ height: "100vh" }} textAlign="center" verticalAlign="middle">
+    <Grid style={{ backgroundColor: "blue" }}>
       <Grid.Row>
         <Grid.Column>
-          <Game></Game>
+          <p>Hello</p>
         </Grid.Column>
       </Grid.Row>
     </Grid>
   );
 }
-
-export default App;
