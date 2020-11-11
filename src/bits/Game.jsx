@@ -6,29 +6,37 @@ import preloadGame from "bits/preloadGame";
 import usePhaser from "bits/usePhaser";
 
 // TODO: configure game for pixel art
-export default function Game() {
+export default function Game({ width, height }) {
   const gameRef = usePhaser((canvas) => {
     return {
       canvas: canvas,
-      height: 300,
+      height: height,
       scene: {
         create: createGame,
         preload: preloadGame,
       },
       type: Phaser.CANVAS,
-      width: 400,
+      width: width,
     };
   });
 
   return (
-    <>
-      <canvas
-        display="inline"
-        height={300}
-        ref={gameRef}
-        style={{ backgroundColor: "#000000" }}
-        width={400}
-      ></canvas>
-    </>
+    <div
+      style={{
+        display: "inline-block",
+        height: height,
+        position: "relative",
+        width: width,
+      }}
+    >
+      <UI
+        style={{
+          height: "100%",
+          position: "absolute",
+          width: "100%",
+        }}
+      ></UI>
+      <canvas ref={gameRef}></canvas>
+    </div>
   );
 }

@@ -7,7 +7,7 @@ function App() {
     <Grid style={{ height: "100vh" }} textAlign="center" verticalAlign="middle">
       <Grid.Row>
         <Grid.Column>
-          <Game></Game>
+          <Game height={300} width={400}></Game>
         </Grid.Column>
       </Grid.Row>
     </Grid>
