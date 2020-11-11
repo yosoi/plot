@@ -1,3 +1,5 @@
+import { Button, Grid, Label } from "semantic-ui-react";
+
 import Phaser from "phaser";
 import React from "react";
 import UI from "bits/UI";
@@ -6,7 +8,7 @@ import preloadGame from "bits/preloadGame";
 import usePhaser from "bits/usePhaser";
 
 // TODO: configure game for pixel art
-export default function Game({ width, height }) {
+export default function Game({ height, width }) {
   const gameRef = usePhaser((canvas) => {
     return {
       canvas: canvas,
@@ -29,13 +31,7 @@ export default function Game({ width, height }) {
         width: width,
       }}
     >
-      <UI
-        style={{
-          height: "100%",
-          position: "absolute",
-          width: "100%",
-        }}
-      ></UI>
+      <UI></UI>
       <canvas ref={gameRef}></canvas>
     </div>
   );

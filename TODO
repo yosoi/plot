@@ -4,8 +4,5 @@ TODO: research cognito guest users
 TODO: research file upload to s3 with amplify/graphql
 
 TODO: draw isometric grid of tiles from tilemap
-TODO: configure react ui overlay for phaser game
 TODO: connect ui and phaser using messaging system
 TODO: design graphql schema(s)
-
-FIXME: additional games sometimes added to DOM on autorefresh
