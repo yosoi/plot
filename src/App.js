@@ -1,4 +1,4 @@
-import Game from "bits/Game";
+import Game from "bits/ui/Game";
 import { Grid } from "semantic-ui-react";
 import React from "react";
 

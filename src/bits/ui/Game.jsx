@@ -1,15 +1,13 @@
-import { Button, Grid, Label } from "semantic-ui-react";
-
 import Phaser from "phaser";
 import React from "react";
-import UI from "bits/UI";
-import createGame from "bits/createGame";
-import preloadGame from "bits/preloadGame";
-import usePhaser from "bits/usePhaser";
+import UI from "bits/ui/UI";
+import createGame from "bits/game/createGame";
+import preloadGame from "bits/game/preloadGame";
+import usePhaser from "bits/ui/usePhaser";
 
 // TODO: configure game for pixel art
 export default function Game({ height, width }) {
-  const gameRef = usePhaser((canvas) => {
+  const [gameRef, dispatchCanvasEvent] = usePhaser((canvas) => {
     return {
       canvas: canvas,
       height: height,
@@ -31,7 +29,7 @@ export default function Game({ height, width }) {
         width: width,
       }}
     >
-      <UI></UI>
+      <UI onEvent={(event) => dispatchCanvasEvent(event)}></UI>
       <canvas ref={gameRef}></canvas>
     </div>
   );

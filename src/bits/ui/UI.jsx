@@ -2,9 +2,14 @@ import { Button, Grid, Label } from "semantic-ui-react";
 
 import React from "react";
 import ReactNipple from "react-nipple";
+import events from "bits/game/events/events";
 
-// TODO: implement game UI
-export default function UI() {
+export default function UI({ onEvent }) {
+  const broadcastEvent = (name, data) => {
+    onEvent(new CustomEvent(name, { detail: data }));
+  };
+
+  // TODO: define event names in enum in a separate file and import it
   return (
     <div>
       <Grid
@@ -20,7 +25,12 @@ export default function UI() {
       >
         <Grid.Row columns={2} style={{ height: "25%" }} verticalAlign="middle">
           <Grid.Column floated="left">
-            <Button circular icon="home" inverted></Button>
+            <Button
+              circular
+              icon="home"
+              inverted
+              onClick={() => broadcastEvent(events.ON_HOME_PRESSED.name, {})}
+            ></Button>
           </Grid.Column>
           <Grid.Column floated="right" textAlign="right">
             <Label
@@ -37,7 +47,7 @@ export default function UI() {
                 <Grid.Column floated="left" verticalAlign="bottom">
                   <ReactNipple
                     onMove={(evt, data) => {
-                      // TODO: handle joystick movement
+                      broadcastEvent(events.ON_JOYSTICK_MOVED.name, data);
                     }}
                     options={{
                       mode: "static",
@@ -54,18 +64,41 @@ export default function UI() {
                   <Grid>
                     <Grid.Row>
                       <Grid.Column>
-                        <Button circular icon="arrow right" inverted></Button>
+                        <Button
+                          circular
+                          icon="arrow right"
+                          inverted
+                          onClick={() =>
+                            broadcastEvent(events.ON_NEXT_PLOT_PRESSED.name, {})
+                          }
+                        ></Button>
                       </Grid.Column>
                     </Grid.Row>
                     <Grid.Row columns={2} verticalAlign="bottom">
                       <Grid.Column>
-                        <Button circular icon="pencil" inverted></Button>
+                        <Button
+                          circular
+                          icon="comment"
+                          inverted
+                          onClick={() =>
+                            broadcastEvent(
+                              events.ON_OPEN_GUESTBOOK_PRESSED.name,
+                              {}
+                            )
+                          }
+                        ></Button>
                       </Grid.Column>
                       <Grid.Column>
                         <Button
                           circular
                           icon="camera"
                           inverted
+                          onClick={() =>
+                            broadcastEvent(
+                              events.ON_SAMPLE_TILE_PRESSED.name,
+                              {}
+                            )
+                          }
                           size="massive"
                         ></Button>
                       </Grid.Column>
