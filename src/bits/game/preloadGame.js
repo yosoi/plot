@@ -6,6 +6,4 @@ export default function preloadGame() {
   });
 
   // TODO: load the tilemap data in phaser scene object
-  //   this.load.image(image.key, image.value);
-  //   this.load.tilemapTiledJSON(tilemap.key, tilemap.value);
 }

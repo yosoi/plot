@@ -1,8 +1,11 @@
-TODO: research tilemap formats
 TODO: research how to serialize tile state machines
 TODO: research cognito guest users
 TODO: research file upload to s3 with amplify/graphql
 
 TODO: draw isometric grid of tiles from tilemap
-TODO: connect ui and phaser using messaging system
 TODO: design graphql schema(s)
+
+TODO: design entire in-game ui
+TODO: mock ui
+
+TODO: click plot id to copy to clipboard
