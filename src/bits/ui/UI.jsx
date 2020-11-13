@@ -1,9 +1,10 @@
-import Create from "bits/ui/views/Create";
+import Create from "./views/Create";
 import Explore from "bits/ui/views/Explore";
 import { Grid } from "semantic-ui-react";
 import React from "react";
+import Transition from "./views/Transition";
 
-export default function UI({ onEvent }) {
+export default function UI({}) {
   return (
     <Grid
       style={{
@@ -16,7 +17,7 @@ export default function UI({ onEvent }) {
       textAlign="left"
       verticalAlign="top"
     >
-      <Explore></Explore>
+      <Transition></Transition>
     </Grid>
   );
 }

@@ -1,4 +1,3 @@
-import EditTileButton from "bits/ui/controls/EditTileButton";
 import HomeButton from "bits/ui/controls/HomeButton";
 import NextPlotButton from "../controls/NextPlotButton";
 import OpenGuestbookButton from "bits/ui/controls/OpenGuestbookButton";
