@@ -1,10 +1,15 @@
-import Create from "./views/Create";
+import React, { useState } from "react";
+
+import Create from "bits/ui/views/Create";
 import Explore from "bits/ui/views/Explore";
 import { Grid } from "semantic-ui-react";
-import React from "react";
-import Transition from "./views/Transition";
+import { StateProvider } from "./contexts/StateContext";
+import Transition from "bits/ui/views/Transition";
+import states from "bits/states";
 
-export default function UI({}) {
+export default function UI() {
+  const [state, setState] = useState(states.CREATE);
+
   return (
     <Grid
       style={{
@@ -17,7 +22,15 @@ export default function UI({}) {
       textAlign="left"
       verticalAlign="top"
     >
-      <Transition></Transition>
+      <StateProvider value={[state, setState]}>
+        {state === states.CREATE ? (
+          <Create></Create>
+        ) : state === states.EXPLORE ? (
+          <Explore></Explore>
+        ) : (
+          <Transition></Transition>
+        )}
+      </StateProvider>
     </Grid>
   );
 }

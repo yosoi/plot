@@ -1,7 +1,10 @@
+import React, { useContext, useEffect } from "react";
+
 import { Grid } from "semantic-ui-react";
 import Joystick from "bits/ui/controls/Joystick";
+import PlotContext from "bits/ui/contexts/PlotContext";
 import PlotLabel from "bits/ui/controls/PlotLabel";
-import React from "react";
+import Transition from "bits/ui/views/Transition";
 
 export default function Play({
   contextButton,
@@ -9,7 +12,8 @@ export default function Play({
   secondaryButton,
   tertiaryButton,
 }) {
-  return (
+  const plot = useContext(PlotContext);
+  return plot ? (
     <>
       <Grid.Row columns={2} style={{ height: "25%" }} verticalAlign="middle">
         <Grid.Column floated="left">{contextButton}</Grid.Column>
@@ -40,5 +44,7 @@ export default function Play({
         </Grid.Column>
       </Grid.Row>
     </>
+  ) : (
+    <Transition></Transition>
   );
 }

@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import DispatchCanvasEventContext from "../contexts/DispatchCanvasEventContext";
 import ReactNipple from "react-nipple";
+import RoundButton from "bits/ui/controls/RoundButton";
+import StateContext from "../contexts/StateContext";
+import events from "bits/game/events/events";
+import states from "bits/states";
 
 export default function Joystick() {
+  const dispatchCanvasEvent = useContext(DispatchCanvasEventContext);
+
   return (
     <ReactNipple
       onMove={(evt, data) => {
-        // broadcastEvent(events.ON_JOYSTICK_MOVED.name, data);
+        dispatchCanvasEvent(
+          new CustomEvent(events.ON_JOYSTICK_MOVED.name, { detail: data })
+        );
       }}
       options={{
         mode: "static",
