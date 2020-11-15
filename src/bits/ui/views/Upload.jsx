@@ -4,7 +4,6 @@ import React, { useContext } from "react";
 import StateContext from "bits/ui/contexts/StateContext";
 import states from "bits/states";
 
-// TODO: restyle this to match Analyze view
 // TODO: check file size limit
 // TODO: add info hover circle with tooltip restrictions
 

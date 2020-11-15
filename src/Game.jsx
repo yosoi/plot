@@ -13,7 +13,7 @@ export default function Game({ height, width }) {
   // ui tells game to load a plot
   // when plot is loaded, game calls setPlot with new plot id via synthetic event
 
-  const [plot, setPlot] = useState({ id: "123abc" });
+  const [plot, setPlot] = useState({ hearts: 12, id: "123abc", stars: 3 });
 
   const [gameRef, dispatchCanvasEvent] = usePhaser((canvas) => {
     return {

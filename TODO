@@ -5,7 +5,4 @@ TODO: research file upload to s3 with amplify/graphql
 TODO: draw isometric grid of tiles from tilemap
 TODO: design graphql schema(s)
 
-TODO: design entire in-game ui
-TODO: mock ui
-
 TODO: click plot id to copy to clipboard

@@ -9,16 +9,14 @@ import {
 import React, { useContext, useState } from "react";
 
 import CloseIcon from "../controls/CloseIcon";
+import PlotContext from "../contexts/PlotContext";
 import StateContext from "../contexts/StateContext";
 import states from "bits/states";
 
 export default function Analyze() {
-  // TODO: get stars and hearts for your plot
-  const [stars] = useState(0);
-  const [hearts] = useState(0);
-
   // TODO: change close icon color on hover
 
+  const plot = useContext(PlotContext);
   const [, setState] = useContext(StateContext);
 
   return (
@@ -43,10 +41,10 @@ export default function Analyze() {
           <Grid>
             <Grid.Row columns={2} textAlign="center">
               <Grid.Column>
-                <Statistic label="stars" value={stars}></Statistic>
+                <Statistic label="stars" value={plot.stars}></Statistic>
               </Grid.Column>
               <Grid.Column>
-                <Statistic label="hearts" value={hearts}></Statistic>
+                <Statistic label="hearts" value={plot.hearts}></Statistic>
               </Grid.Column>
             </Grid.Row>
           </Grid>
