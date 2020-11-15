@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
 
-import DispatchCanvasEventContext from "../contexts/DispatchCanvasEventContext";
+import GameContext from "../contexts/GameContext";
 import RoundButton from "bits/ui/controls/RoundButton";
 import events from "bits/game/events/events";
 
 export default function EditTileButton() {
-  const dipatchCanvasEvent = useContext(DispatchCanvasEventContext);
+  const [, dipatchCanvasEvent] = useContext(GameContext);
 
   return (
     <RoundButton

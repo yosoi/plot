@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 
 import { Grid } from "semantic-ui-react";
 import Joystick from "bits/ui/controls/Joystick";
@@ -8,9 +8,9 @@ import Transition from "bits/ui/views/Transition";
 
 export default function Play({
   contextButton,
+  guestbookButton,
   primaryButton,
   secondaryButton,
-  tertiaryButton,
 }) {
   const plot = useContext(PlotContext);
   return plot ? (
@@ -34,7 +34,7 @@ export default function Play({
                     <Grid.Column>{secondaryButton}</Grid.Column>
                   </Grid.Row>
                   <Grid.Row columns={2} verticalAlign="bottom">
-                    <Grid.Column>{tertiaryButton}</Grid.Column>
+                    <Grid.Column>{guestbookButton}</Grid.Column>
                     <Grid.Column>{primaryButton}</Grid.Column>
                   </Grid.Row>
                 </Grid>

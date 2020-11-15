@@ -13,11 +13,11 @@ export default function HomeButton() {
 
   return (
     <RoundButton
-      icon="home"
+      icon="pie chart"
       onClick={() => {
-        setState(states.CREATE);
+        setState(states.ANALYZE);
         dipatchCanvasEvent(
-          new CustomEvent(events.ON_HOME_PRESSED.name, { detail: {} })
+          new CustomEvent(events.ON_ANALYZE_PRESSED.name, { detail: {} })
         );
       }}
     ></RoundButton>

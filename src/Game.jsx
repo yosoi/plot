@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { DispatchCanvasEventProvider } from "bits/ui/contexts/DispatchCanvasEventContext";
+import { GameProvider } from "bits/ui/contexts/GameContext";
 import Phaser from "phaser";
 import { PlotProvider } from "bits/ui/contexts/PlotContext";
 import UI from "bits/ui/UI";
@@ -11,9 +11,9 @@ import usePhaser from "bits/ui/usePhaser";
 // TODO: configure game for pixel art
 export default function Game({ height, width }) {
   // ui tells game to load a plot
-  // when plot is loaded, game fires event at ui with new plot info
+  // when plot is loaded, game calls setPlot with new plot id via synthetic event
 
-  const [plot] = useState({ id: "123abc" });
+  const [plot, setPlot] = useState({ id: "123abc" });
 
   const [gameRef, dispatchCanvasEvent] = usePhaser((canvas) => {
     return {
@@ -39,9 +39,10 @@ export default function Game({ height, width }) {
       }}
     >
       <PlotProvider value={plot}>
-        <DispatchCanvasEventProvider value={dispatchCanvasEvent}>
+        <GameProvider value={[gameRef, dispatchCanvasEvent]}>
           <UI></UI>
-        </DispatchCanvasEventProvider>
+        </GameProvider>
+
         <canvas ref={gameRef}></canvas>
       </PlotProvider>
     </div>

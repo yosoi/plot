@@ -1,4 +1,4 @@
-import { Grid, Loader, Segment } from "semantic-ui-react";
+import { Grid, Loader } from "semantic-ui-react";
 
 import React from "react";
 
